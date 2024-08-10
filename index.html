@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -1791,6 +1791,32 @@
             </div>
         </div>
     </footer>
+	// Display the non-skippable warning using SweetAlert
+	<script>
+    function showNonSkippableWarningAndRedirect(message, redirectUrl) {
+        // Display the warning message
+        Swal.fire({
+            title: "Warning",
+            text: message,
+            icon: "warning",
+            showCancelButton: false,
+            confirmButtonText: "OK",
+            // Ensure the alert cannot be dismissed by clicking outside or pressing Escape
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+        }).then((result) => {
+            // Redirect the user to a different page
+            if (result.isConfirmed) {
+                window.location.href = redirectUrl;
+            }
+        });
+    }
+
+    // Usage
+    var message = "Please coonect your site to your dedicated hosting and domain to continue. Thank you :)";
+    var redirectUrl = "https://marketoze.company"; // URL to redirect to
+    showNonSkippableWarningAndRedirect(message, redirectUrl);
+</script>
  <!-- WhatsApp button container -->
  <div class="whatsapp-container" id="whatsapp-container">
     <a href="https://api.whatsapp.com/send?phone=971557420576&text=Hi%2C%20Rukn!%20I%20need%20some%20rental%20equipments..." target="_blank" rel="noopener noreferrer">
